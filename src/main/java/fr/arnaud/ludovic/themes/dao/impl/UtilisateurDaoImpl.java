@@ -1,5 +1,7 @@
 package fr.arnaud.ludovic.themes.dao.impl;
 
+import java.util.ResourceBundle;
+
 import javax.persistence.EntityManager;
 
 import fr.arnaud.ludovic.themes.dao.GenericDaoJPAImpl;
@@ -8,31 +10,13 @@ import fr.arnaud.ludovic.themes.dao.exception.DataAccessException;
 import fr.arnaud.ludovic.themes.modeles.entities.Utilisateur;
 
 public class UtilisateurDaoImpl extends GenericDaoJPAImpl<Utilisateur, Integer> implements UtilisateurDAO {
+	
+	ResourceBundle bundle = ResourceBundle.getBundle("fr.arnaud.ludovic.themes.properties.langue");
 
 	@Override
 	public Class<Utilisateur> getClazz() {
 		setClazz(Utilisateur.class);
 		return Utilisateur.class;
-	}
-
-	@Override
-	public Utilisateur findUserByMail(String mail) {
-		EntityManager em = getEntityManager();
-		Utilisateur user = null;
-		try {
-			em.getTransaction().begin();
-			String req = "SELECT u FROM " + Utilisateur.class.getName() + " u WHERE u.email = :email ";
-			user = em.createQuery(req, Utilisateur.class).setParameter("email", mail).getSingleResult();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new DataAccessException("l'utilisateur n'exsiste pas");
-		}
-
-		finally {
-			closeEntityManager(em);
-		}
-		return user;
 	}
 
 	@Override
@@ -47,7 +31,7 @@ public class UtilisateurDaoImpl extends GenericDaoJPAImpl<Utilisateur, Integer> 
 					.getSingleResult();
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DataAccessException("l'utilisateur n'exsiste pas");
+			throw new DataAccessException(bundle.getString("error.login"));
 		} finally {
 			closeEntityManager(em);
 		}
