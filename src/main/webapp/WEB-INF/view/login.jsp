@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="inscriptions.do?action=Login" method="post" id="contact" onsubmit="return valider()">
+<form action="themes.do?action=Login" method="post" id="contact" onsubmit="return valider()">
 <br>
 	<div><label for="">
 		<fmt:bundle basename="ressources" prefix="lbl_">

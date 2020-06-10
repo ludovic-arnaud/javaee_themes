@@ -11,5 +11,4 @@ public class ThemeDAOImpl extends GenericDaoJPAImpl<Theme, Integer> implements T
 		setClazz(Theme.class);
 		return Theme.class;
 	}
-
 }

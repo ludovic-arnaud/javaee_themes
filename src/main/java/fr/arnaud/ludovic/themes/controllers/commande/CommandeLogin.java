@@ -18,10 +18,10 @@ public class CommandeLogin implements Commande {
 		String login = request.getParameter("login");
 		String mdp = request.getParameter("mdp");
 
-		HttpSession session = request.getSession(true);//h
+		HttpSession session = request.getSession(true);
 		session.setAttribute("login", login);
 		session.setAttribute("password", mdp);
-		// if(login.equals()&& mdp.equals("root")) {
+		
 		try {
 			UtilisateurDTO utilisateur=new UtilisateurDTO(login,mdp);
 			Utilisateur user=service.login(utilisateur);

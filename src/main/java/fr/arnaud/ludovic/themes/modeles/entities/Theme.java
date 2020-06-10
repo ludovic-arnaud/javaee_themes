@@ -165,7 +165,7 @@ public class Theme implements Serializable {
 	@Override
 	public String toString() {
 		return "Theme [idtheme=" + idtheme + ", nom=" + nom + ", couleur=" + couleur + ", description=" + description
-				+ ", descriptionDetaillee=" + descriptionDetaillee + ", activites=" + activites + "]";
+				+ ", descriptionDetaillee=" + descriptionDetaillee + "]";
 	}
 
 
