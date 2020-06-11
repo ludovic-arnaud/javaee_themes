@@ -47,6 +47,10 @@
 	
 	<form action="themes.do?action=InitUpdateTheme" method="post" id="contact" onsubmit="return valider()">
 		<input id="themeId" name="themeId" type="hidden" value="${theme.getIdtheme() }">
+		<input id="themeName" name="themeName" type="hidden" value="${theme.getNom() }">
+		<input id="themeDesc" name="themeDesc" type="hidden" value="${theme.getDescription() }">
+		<input id="themeDetail" name="themeDetail" type="hidden" value="${theme.getDescriptionDetaillee() }">
+		<input id="themeColor" name="themeColor" type="hidden" value="${theme.getCouleur() }">
 		<button type="submit">
 			<fmt:bundle basename="ressources" prefix="btn_">
 				<fmt:message key="update"/>
