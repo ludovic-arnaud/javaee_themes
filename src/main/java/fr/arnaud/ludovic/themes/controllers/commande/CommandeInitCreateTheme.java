@@ -7,8 +7,7 @@ public class CommandeInitCreateTheme implements Commande {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		return "createTheme";
 	}
 
 }

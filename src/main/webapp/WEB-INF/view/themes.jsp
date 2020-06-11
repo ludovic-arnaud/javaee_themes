@@ -41,7 +41,7 @@
 	${theme.getDescriptionDetaillee() }
 	<br>
 	
-	<form action="themes.do?action=InitUpdate" method="post">
+	<form action="themes.do?action=InitUpdateTheme" method="post">
 		<button type="submit" name="btn_update" value="btn_update">
 			<fmt:bundle basename="ressources" prefix="btn_">
 				<fmt:message key="update"/>
@@ -49,7 +49,7 @@
 		</button>
 	</form>
 	
-	<form action="themes.do?action=InitDelete" method="post">
+	<form action="themes.do?action=InitDeleteTheme" method="post">
 		<button type="submit" name="btn_delete" value="btn_delete">
 			<fmt:bundle basename="ressources" prefix="btn_">
 				<fmt:message key="delete"/>
@@ -59,7 +59,7 @@
 	<br>
 </c:forEach>
 
-<form action="themes.do?action=InitCreate" method="post">
+<form action="themes.do?action=InitCreateTheme" method="post">
 	<button type="submit" name="btn_create" value="btn_create">
 		<fmt:bundle basename="ressources" prefix="btn_">
 			<fmt:message key="create"/>

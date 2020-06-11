@@ -45,6 +45,14 @@ public class Theme implements Serializable {
 		super();
 	}
 
+	public Theme(String nom, String couleur, String description, String descriptionDetaillee) {
+		super();
+		this.nom = nom;
+		this.couleur = couleur;
+		this.description = description;
+		this.descriptionDetaillee = descriptionDetaillee;
+	}
+
 	public Theme(String nom, String couleur, String description, String descriptionDetaillee,
 			List<Activite> activitesTheme) {
 		super();

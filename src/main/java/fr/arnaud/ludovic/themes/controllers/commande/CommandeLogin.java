@@ -28,7 +28,7 @@ public class CommandeLogin implements Commande {
 			session.setAttribute("isConnected", true);
 			
 			session.setAttribute("user", user);
-			return "connected";
+			return "redirect";
 		}
 
 		catch (Exception e) {
