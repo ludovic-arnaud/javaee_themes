@@ -9,7 +9,8 @@ public interface ServiceTheme {
 	
 	public List<Theme> getAllThemes();
 	public Theme createTheme(ThemeDTO themeDTO);
-	public Theme deleteTheme(ThemeDTO themeDTO);
+	public void deleteTheme(ThemeDTO themeDTO);
+	public void deleteThemeById(ThemeDTO themeDTO);
 	public Theme updateTheme(ThemeDTO themeDTO);
 	
 }

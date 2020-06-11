@@ -5,7 +5,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login</title>
+<title>
+	<fmt:bundle basename="ressources" prefix="title_">
+		<fmt:message key="login"/>
+	</fmt:bundle>
+</title>
 </head>
 <body>
 

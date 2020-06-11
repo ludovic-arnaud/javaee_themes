@@ -6,7 +6,13 @@ public class ThemeDTO {
 	private String couleur;
 	private String description;
 	private String descriptionDetaillee;
+	private Integer id;
 	
+	public ThemeDTO(Integer id) {
+		super();
+		this.id = id;
+	}
+
 	public ThemeDTO(String nom, String couleur, String description, String descriptionDetaillee) {
 		super();
 		this.nom = nom;
@@ -45,6 +51,14 @@ public class ThemeDTO {
 
 	public void setDescriptionDetaillee(String descriptionDetaillee) {
 		this.descriptionDetaillee = descriptionDetaillee;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

@@ -38,9 +38,19 @@ public class ServiceThemeImpl implements ServiceTheme {
 	}
 
 	@Override
-	public Theme deleteTheme(ThemeDTO themeDTO) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteTheme(ThemeDTO themeDTO) {
+		if(themeDTO.getNom() == null) {
+			throw new BadRequestException(bundle.getString("ex.themenull"));
+		} else {
+			Theme theme = new Theme(themeDTO.getNom(), themeDTO.getCouleur(), themeDTO.getDescription(), themeDTO.getDescriptionDetaillee());
+			themeDao.delete(theme);
+		}
+	}
+	
+	@Override
+	public void deleteThemeById(ThemeDTO themeDTO) {
+		Theme theme = new Theme(themeDTO.getId());
+		themeDao.deleteById(theme.getIdtheme());		
 	}
 
 	@Override

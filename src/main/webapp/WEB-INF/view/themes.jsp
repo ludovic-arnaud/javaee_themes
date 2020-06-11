@@ -6,7 +6,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>
+	<fmt:bundle basename="ressources" prefix="title_">
+		<fmt:message key="theme"/>
+	</fmt:bundle>
+</title>
 </head>
 <body>
 <h1>
@@ -41,19 +45,21 @@
 	${theme.getDescriptionDetaillee() }
 	<br>
 	
-	<form action="themes.do?action=InitUpdateTheme" method="post">
-		<button type="submit" name="btn_update" value="btn_update">
+	<form action="themes.do?action=InitUpdateTheme" method="post" id="contact" onsubmit="return valider()">
+		<input id="themeId" name="themeId" type="hidden" value="${theme.getIdtheme() }">
+		<button type="submit">
 			<fmt:bundle basename="ressources" prefix="btn_">
 				<fmt:message key="update"/>
-			</fmt:bundle>
+			</fmt:bundle>	
 		</button>
 	</form>
 	
-	<form action="themes.do?action=InitDeleteTheme" method="post">
-		<button type="submit" name="btn_delete" value="btn_delete">
+	<form action="themes.do?action=DeleteTheme" method="post" id="contact" onsubmit="return valider()">
+		<input id="themeId" name="themeId" type="hidden" value="${theme.getIdtheme() }">
+		<button type="submit">
 			<fmt:bundle basename="ressources" prefix="btn_">
 				<fmt:message key="delete"/>
-			</fmt:bundle>
+			</fmt:bundle>	
 		</button>
 	</form>
 	<br>

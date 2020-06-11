@@ -17,7 +17,6 @@ public class CommandeInitTheme implements Commande {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		List<Theme> themes = serviceTheme.getAllThemes();
-		System.out.println(themes);
 		request.setAttribute("themes", themes);
 		
 		return "themes";

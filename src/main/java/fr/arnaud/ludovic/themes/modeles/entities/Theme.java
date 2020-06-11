@@ -45,6 +45,11 @@ public class Theme implements Serializable {
 		super();
 	}
 
+	public Theme(Integer idtheme) {
+		super();
+		this.idtheme = idtheme;
+	}
+
 	public Theme(String nom, String couleur, String description, String descriptionDetaillee) {
 		super();
 		this.nom = nom;
@@ -175,8 +180,4 @@ public class Theme implements Serializable {
 		return "Theme [idtheme=" + idtheme + ", nom=" + nom + ", couleur=" + couleur + ", description=" + description
 				+ ", descriptionDetaillee=" + descriptionDetaillee + "]";
 	}
-
-
-	
-	
 }
