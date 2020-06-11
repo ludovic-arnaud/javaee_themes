@@ -15,7 +15,7 @@ import fr.arnaud.ludovic.themes.modeles.entities.Theme;
 import fr.arnaud.ludovic.themes.services.ServiceTheme;
 
 public class ServiceThemeImpl implements ServiceTheme {
-	
+
 	private ThemeDAO themeDao = new ThemeDAOImpl();
 	ResourceBundle bundle = ResourceBundle.getBundle("fr.arnaud.ludovic.themes.properties.langue");
 
@@ -28,10 +28,11 @@ public class ServiceThemeImpl implements ServiceTheme {
 
 	@Override
 	public Theme createTheme(ThemeDTO themeDTO) {
-		if(themeDTO.getNom() == null) {
+		if (themeDTO.getNom() == null) {
 			throw new BadRequestException(bundle.getString("ex.themenull"));
 		} else {
-			Theme theme = new Theme(themeDTO.getNom(), themeDTO.getCouleur(), themeDTO.getDescription(), themeDTO.getDescriptionDetaillee());
+			Theme theme = new Theme(themeDTO.getNom(), themeDTO.getCouleur(), themeDTO.getDescription(),
+					themeDTO.getDescriptionDetaillee());
 			theme = themeDao.create(theme);
 			return theme;
 		}
@@ -39,24 +40,33 @@ public class ServiceThemeImpl implements ServiceTheme {
 
 	@Override
 	public void deleteTheme(ThemeDTO themeDTO) {
-		if(themeDTO.getNom() == null) {
+		if (themeDTO.getNom() == null) {
 			throw new BadRequestException(bundle.getString("ex.themenull"));
 		} else {
-			Theme theme = new Theme(themeDTO.getNom(), themeDTO.getCouleur(), themeDTO.getDescription(), themeDTO.getDescriptionDetaillee());
+			Theme theme = new Theme(themeDTO.getNom(), themeDTO.getCouleur(), themeDTO.getDescription(),
+					themeDTO.getDescriptionDetaillee());
 			themeDao.delete(theme);
 		}
 	}
-	
+
 	@Override
 	public void deleteThemeById(ThemeDTO themeDTO) {
 		Theme theme = new Theme(themeDTO.getId());
-		themeDao.deleteById(theme.getIdtheme());		
+		themeDao.deleteById(theme.getIdtheme());
 	}
 
 	@Override
 	public Theme updateTheme(ThemeDTO themeDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		if (themeDTO.getNom() == null) {
+			throw new BadRequestException(bundle.getString("ex.themenull"));
+		} else {
+			Theme theme = themeDao.findById(themeDTO.getId());
+			theme.setCouleur(themeDTO.getCouleur());
+			theme.setDescription(themeDTO.getDescription());
+			theme.setDescriptionDetaillee(themeDTO.getDescriptionDetaillee());
+			System.out.println(theme);
+			themeDao.update(theme);
+			return theme;
+		}
 	}
-
 }

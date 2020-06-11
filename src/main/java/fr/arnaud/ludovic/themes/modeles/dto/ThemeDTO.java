@@ -21,6 +21,15 @@ public class ThemeDTO {
 		this.descriptionDetaillee = descriptionDetaillee;
 	}
 
+	public ThemeDTO(String nom, String couleur, String description, String descriptionDetaillee, Integer id) {
+		super();
+		this.nom = nom;
+		this.couleur = couleur;
+		this.description = description;
+		this.descriptionDetaillee = descriptionDetaillee;
+		this.id = id;
+	}
+
 	public String getNom() {
 		return nom;
 	}

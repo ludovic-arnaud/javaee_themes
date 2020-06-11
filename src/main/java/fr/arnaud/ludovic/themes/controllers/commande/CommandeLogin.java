@@ -23,8 +23,8 @@ public class CommandeLogin implements Commande {
 		session.setAttribute("password", mdp);
 		
 		try {
-			UtilisateurDTO utilisateur=new UtilisateurDTO(login,mdp);
-			Utilisateur user=service.login(utilisateur);
+			UtilisateurDTO utilisateur = new UtilisateurDTO(login,mdp);
+			Utilisateur user = service.login(utilisateur);
 			session.setAttribute("isConnected", true);
 			
 			session.setAttribute("user", user);

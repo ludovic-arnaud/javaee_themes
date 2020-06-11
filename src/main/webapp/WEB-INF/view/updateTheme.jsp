@@ -37,6 +37,7 @@
 		<input type="color" name="color" value="${themeColor }">
 		<br>
 		<br>
+		<input id="themeId" name="themeId" type="hidden" value="${themeId }">
 		<button type="reset">
 			<fmt:bundle basename="ressources" prefix="btn_">
 				<fmt:message key="reset"/>

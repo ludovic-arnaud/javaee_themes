@@ -25,7 +25,7 @@ public class Theme implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idtheme;
 	
-	@Column(length = 10,unique = true, nullable = false)
+	@Column(length = 30,unique = true, nullable = false)
 	private String nom ;
 	
 	@Column(length = 10, nullable = true)
@@ -48,6 +48,13 @@ public class Theme implements Serializable {
 	public Theme(Integer idtheme) {
 		super();
 		this.idtheme = idtheme;
+	}
+
+	public Theme(String couleur, String description, String descriptionDetaillee) {
+		super();
+		this.couleur = couleur;
+		this.description = description;
+		this.descriptionDetaillee = descriptionDetaillee;
 	}
 
 	public Theme(String nom, String couleur, String description, String descriptionDetaillee) {
