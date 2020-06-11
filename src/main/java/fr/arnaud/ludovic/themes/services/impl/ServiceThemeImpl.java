@@ -61,10 +61,10 @@ public class ServiceThemeImpl implements ServiceTheme {
 			throw new BadRequestException(bundle.getString("ex.themenull"));
 		} else {
 			Theme theme = themeDao.findById(themeDTO.getId());
+			theme.setNom(themeDTO.getNom());
 			theme.setCouleur(themeDTO.getCouleur());
 			theme.setDescription(themeDTO.getDescription());
 			theme.setDescriptionDetaillee(themeDTO.getDescriptionDetaillee());
-			System.out.println(theme);
 			themeDao.update(theme);
 			return theme;
 		}

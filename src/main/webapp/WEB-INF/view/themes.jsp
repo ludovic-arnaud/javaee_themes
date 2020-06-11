@@ -30,7 +30,7 @@
 	<fmt:bundle basename="ressources" prefix="lbl_">
 		<fmt:message key="listname"/>
 	</fmt:bundle>
-	${theme.getNom() }
+	<span style="color: ${theme.getCouleur() }">${theme.getNom() }</span>
 	<br>
 	
 	<fmt:bundle basename="ressources" prefix="lbl_">
@@ -74,6 +74,15 @@
 		<fmt:bundle basename="ressources" prefix="btn_">
 			<fmt:message key="create"/>
 		</fmt:bundle>
+	</button>
+</form>
+
+<form action="themes.do?action=Disconnect" method="post" id="disconnect" onsubmit="return valider()">
+	<input id="email" name="email" type="hidden" value="${user.getEmail() }">
+	<button type="submit">
+		<fmt:bundle basename="ressources" prefix="btn_">
+			<fmt:message key="disconnect"/>
+		</fmt:bundle>	
 	</button>
 </form>
 
