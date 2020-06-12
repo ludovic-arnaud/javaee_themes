@@ -9,16 +9,33 @@ import fr.arnaud.ludovic.themes.dao.UtilisateurDAO;
 import fr.arnaud.ludovic.themes.dao.exception.DataAccessException;
 import fr.arnaud.ludovic.themes.modeles.entities.Utilisateur;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UtilisateurDaoImpl.
+ */
 public class UtilisateurDaoImpl extends GenericDaoJPAImpl<Utilisateur, Integer> implements UtilisateurDAO {
 	
+	/** Ajout du bundle pour prendre en charge les langues */
 	ResourceBundle bundle = ResourceBundle.getBundle("fr.arnaud.ludovic.themes.properties.langue");
 
+	/**
+	 * Génère la classe Utilisateur
+	 *
+	 * @return classe Utilisateur
+	 */
 	@Override
 	public Class<Utilisateur> getClazz() {
 		setClazz(Utilisateur.class);
 		return Utilisateur.class;
 	}
 
+	/**
+	 * Cherche un utilisateur via son email et son mot de passe
+	 *
+	 * @param mail
+	 * @param password
+	 * @return Utilisateur user
+	 */
 	@Override
 	public Utilisateur findUserByMailAndPassword(String mail, String password) {
 		Utilisateur user = null;

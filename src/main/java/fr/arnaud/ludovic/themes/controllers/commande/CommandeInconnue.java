@@ -5,10 +5,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+// TODO: Auto-generated Javadoc
+/**
+ * Classe CommandeInconnue qui implémente Commande
+ */
 public class CommandeInconnue implements Commande {
 
+/** Constante logger */
 final static Logger logger = Logger.getLogger(CommandeInconnue.class);	
 
+	/**
+	 * Renvoie vers la page erreur404 en cas de Commande non trouvée
+	 *
+	 * @param request
+	 * @param response
+	 * @return le jsp
+	 */
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		if(logger.isDebugEnabled()) {

@@ -4,8 +4,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+// TODO: Auto-generated Javadoc
+/**
+ * Classe CommandeInitTheme qui implémente Commande
+ */
 public class CommandeInitUpdateTheme implements Commande {
 
+	/**
+	 * Renvoie vers updateTheme.jsp et maintient en mémoire le Theme
+	 *
+	 * @param request
+	 * @param response
+	 * @return le jsp
+	 */
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String themeId = request.getParameter("themeId");

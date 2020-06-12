@@ -14,11 +14,23 @@ import fr.arnaud.ludovic.themes.modeles.dto.ThemeDTO;
 import fr.arnaud.ludovic.themes.modeles.entities.Theme;
 import fr.arnaud.ludovic.themes.services.ServiceTheme;
 
+// TODO: Auto-generated Javadoc
+/**
+ * La classe ServiceThemeImpl implémente l'interface ServiceTheme.
+ */
 public class ServiceThemeImpl implements ServiceTheme {
 
+	/** Implémentation du DAO de Theme */
 	private ThemeDAO themeDao = new ThemeDAOImpl();
+	
+	/** Ajout du bundle pour prendre en charge les langues */
 	ResourceBundle bundle = ResourceBundle.getBundle("fr.arnaud.ludovic.themes.properties.langue");
 
+	/**
+	 * Génère la liste de tous les thèmes contenus dans la base de données
+	 *
+	 * @return List<Theme> listThemes
+	 */
 	@Override
 	public List<Theme> getAllThemes() {
 		List<Theme> listThemes = new ArrayList<Theme>();
@@ -26,6 +38,12 @@ public class ServiceThemeImpl implements ServiceTheme {
 		return listThemes;
 	}
 
+	/**
+	 * Permet de créer un nouveau thème
+	 *
+	 * @param ThemeDTO themeDTO
+	 * @return Theme theme
+	 */
 	@Override
 	public Theme createTheme(ThemeDTO themeDTO) {
 		if (themeDTO.getNom() == null) {
@@ -38,6 +56,11 @@ public class ServiceThemeImpl implements ServiceTheme {
 		}
 	}
 
+	/**
+	 * Permet de supprimer un thème
+	 *
+	 * @param ThemeDTO themeDTO
+	 */
 	@Override
 	public void deleteTheme(ThemeDTO themeDTO) {
 		if (themeDTO.getNom() == null) {
@@ -49,12 +72,23 @@ public class ServiceThemeImpl implements ServiceTheme {
 		}
 	}
 
+	/**
+	 * Permet de supprimer un thème par son id
+	 *
+	 * @param ThemeDTO themeDTO
+	 */
 	@Override
 	public void deleteThemeById(ThemeDTO themeDTO) {
 		Theme theme = new Theme(themeDTO.getId());
 		themeDao.deleteById(theme.getIdtheme());
 	}
 
+	/**
+	 * Permet de modifier un thème
+	 *
+	 * @param ThemeDTO themeDTO
+	 * @return Theme theme
+	 */
 	@Override
 	public Theme updateTheme(ThemeDTO themeDTO) {
 		if (themeDTO.getNom() == null) {

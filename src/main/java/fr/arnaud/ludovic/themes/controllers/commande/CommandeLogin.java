@@ -9,10 +9,24 @@ import fr.arnaud.ludovic.themes.modeles.entities.Utilisateur;
 import fr.arnaud.ludovic.themes.services.ServiceUtilisateur;
 import fr.arnaud.ludovic.themes.services.impl.ServiceUtilisateurImpl;
 
+// TODO: Auto-generated Javadoc
+/**
+ *  Classe CommandeLogin qui implémente Commande
+ */
 public class CommandeLogin implements Commande {
 	
+	/** Implémente le Service de Theme */
 	private ServiceUtilisateur service = new ServiceUtilisateurImpl();
 
+	/**
+	 * Vérifie que l'utilisateur existe bien
+	 * Si oui, il est renvoyé vers redirect.jsp qui renvoie vers la liste de thèmes
+	 * Si non, il doit ressaisir ses identifiants
+	 *
+	 * @param request
+	 * @param response
+	 * @return jsp
+	 */
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String login = request.getParameter("login");
