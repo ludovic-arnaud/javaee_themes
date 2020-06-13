@@ -70,4 +70,10 @@ public class ThemeDTO {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return "ThemeDTO [nom=" + nom + ", couleur=" + couleur + ", description=" + description
+				+ ", descriptionDetaillee=" + descriptionDetaillee + "]";
+	}
+
 }
