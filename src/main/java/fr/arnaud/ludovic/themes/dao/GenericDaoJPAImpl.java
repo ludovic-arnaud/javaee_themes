@@ -1,6 +1,7 @@
 package fr.arnaud.ludovic.themes.dao;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -9,9 +10,19 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.apache.log4j.Logger;
+
+import fr.arnaud.ludovic.themes.controllers.commande.CommandeInconnue;
+import fr.arnaud.ludovic.themes.dao.exception.DataAccessException;
 import fr.arnaud.ludovic.themes.dao.util.DAOUtil;
 
 public abstract class GenericDaoJPAImpl<T, ID> implements DAO<T, ID> {
+	
+	/** Ajout du bundle pour prendre en charge les langues */
+	ResourceBundle bundle = ResourceBundle.getBundle("fr.arnaud.ludovic.themes.properties.langue");
+	
+	/** Constante logger */
+	final static Logger logger = Logger.getLogger(CommandeInconnue.class);
 
 	private Class<T> clazz=getClazz();
 
@@ -52,7 +63,7 @@ public abstract class GenericDaoJPAImpl<T, ID> implements DAO<T, ID> {
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
-			throw e;
+			throw new DataAccessException(bundle.getString("error.create"));
 		} finally {
 			closeEntityManager(em);
 		}

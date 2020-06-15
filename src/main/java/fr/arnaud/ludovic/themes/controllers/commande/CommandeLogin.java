@@ -43,8 +43,8 @@ public class CommandeLogin implements Commande {
 		String mdp = request.getParameter("mdp");
 
 		HttpSession session = request.getSession(true);
-		session.setAttribute("login", login);
-		session.setAttribute("password", mdp);
+//		session.setAttribute("login", login);
+//		session.setAttribute("password", mdp);
 		
 		try {
 			UtilisateurDTO utilisateur = new UtilisateurDTO(login,mdp);

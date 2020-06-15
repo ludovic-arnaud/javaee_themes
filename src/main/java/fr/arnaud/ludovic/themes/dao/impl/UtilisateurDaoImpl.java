@@ -56,7 +56,7 @@ public class UtilisateurDaoImpl extends GenericDaoJPAImpl<Utilisateur, Integer> 
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(bundle.getString("error.reqUser"), e);
-			throw new DataAccessException(bundle.getString("error.login"));
+			throw new DataAccessException(bundle.getString("error.log"));
 		} finally {
 			closeEntityManager(em);
 		}

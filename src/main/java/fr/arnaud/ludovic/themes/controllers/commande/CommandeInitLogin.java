@@ -26,10 +26,6 @@ public class CommandeInitLogin implements Commande {
 		if (password == null)
 			password = "";
 
-		HttpSession session = request.getSession(true);
-		session.setAttribute("login", login);
-		session.setAttribute("password", password);
-
 		return "login";
 	}
 
