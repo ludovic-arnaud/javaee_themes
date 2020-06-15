@@ -1,8 +1,12 @@
 package fr.arnaud.ludovic.themes.controllers.commande;
 
+import java.util.ResourceBundle;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
 
 import fr.arnaud.ludovic.themes.modeles.dto.UtilisateurDTO;
 import fr.arnaud.ludovic.themes.modeles.entities.Utilisateur;
@@ -14,6 +18,12 @@ import fr.arnaud.ludovic.themes.services.impl.ServiceUtilisateurImpl;
  *  Classe CommandeLogin qui implémente Commande
  */
 public class CommandeLogin implements Commande {
+	
+	/** Constante logger */
+	final static Logger logger = Logger.getLogger(CommandeInconnue.class);	
+
+	/** Ajout du bundle pour prendre en charge les langues */
+	ResourceBundle bundle = ResourceBundle.getBundle("fr.arnaud.ludovic.themes.properties.langue");
 	
 	/** Implémente le Service de Theme */
 	private ServiceUtilisateur service = new ServiceUtilisateurImpl();
@@ -48,6 +58,7 @@ public class CommandeLogin implements Commande {
 		catch (Exception e) {
 			session.setAttribute("isConnected", false);
 			request.setAttribute("msg", e.getMessage());
+			logger.error(bundle.getString("error.login"), e);
 			return "login";
 		}
 		

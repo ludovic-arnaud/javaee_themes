@@ -1,8 +1,12 @@
 package fr.arnaud.ludovic.themes.controllers.commande;
 
+import java.util.ResourceBundle;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
 
 import fr.arnaud.ludovic.themes.modeles.dto.ThemeDTO;
 import fr.arnaud.ludovic.themes.modeles.entities.Theme;
@@ -14,6 +18,12 @@ import fr.arnaud.ludovic.themes.services.impl.ServiceThemeImpl;
  * Classe CommandeDeleteTheme qui implémente Commande
  */
 public class CommandeDeleteTheme implements Commande {
+	
+	/** Constante logger */
+	final static Logger logger = Logger.getLogger(CommandeInconnue.class);	
+
+	/** Ajout du bundle pour prendre en charge les langues */
+	ResourceBundle bundle = ResourceBundle.getBundle("fr.arnaud.ludovic.themes.properties.langue");
 
 	/**
 	 * Appel de HttpSession pour vérifier que l'utilisateur est loggé, sinon renvoie
@@ -41,14 +51,15 @@ public class CommandeDeleteTheme implements Commande {
 			try {
 				ThemeDTO themeDto = new ThemeDTO(Integer.valueOf(themeId));
 				service.deleteThemeById(themeDto);
-
 				return "redirect";
 
 			} catch (Exception e) {
 				request.setAttribute("msg", e.getMessage());
+				logger.error(bundle.getString("error.deleteTheme"), e);
 				return "themes";
 			}
 		} else {
+			logger.warn(bundle.getString("warn.session"));
 			return "login";
 		}
 
