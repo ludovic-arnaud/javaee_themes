@@ -58,6 +58,6 @@
 		</fmt:bundle>
 	</button>
 	</form>
-
+<br>${msg }<br>
 </body>
 </html>

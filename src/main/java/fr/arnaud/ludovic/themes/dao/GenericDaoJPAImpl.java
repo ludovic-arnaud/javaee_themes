@@ -105,7 +105,7 @@ public abstract class GenericDaoJPAImpl<T, ID> implements DAO<T, ID> {
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
-			throw e;
+			throw new DataAccessException(bundle.getString("error.update"));
 		} finally {
 			closeEntityManager(em);
 		}
