@@ -21,34 +21,36 @@ import fr.arnaud.ludovic.themes.modeles.entities.Theme;
 import fr.arnaud.ludovic.themes.services.ServiceTheme;
 import fr.arnaud.ludovic.themes.services.impl.ServiceThemeImpl;
 
+// TODO: Auto-generated Javadoc
 /**
  * Classe de test de ServiceThemeImpl Utilise les annotations de la librairie de
  * Mockito grâce à l'annotation @ExtendWith Mockito est un framwork qui permet
  * de mocker (imitation, faux) des Objets et de simuler des comportements (bdd
- * par exemple)
- *
+ * par exemple).
  */
 @ExtendWith(MockitoExtension.class)
 class ServiceThemeImplTest {
 
-	// On créé une instance de la classe ServiceThemeImpl à tester et on injecte les
-	// mocks créés avec @Mock (ou @Spy) dans l'instance
+	/**
+	 * On créé une instance de la classe ServiceThemeImpl à tester et on injecte les
+	 * mocks créés avec @Mock (ou @Spy) dans l'instance
+	 */
 	@InjectMocks
 	private ServiceTheme serviceTheme = new ServiceThemeImpl();;
 
-	// On mocke un ThemeDAO
+	/** On mocke un ThemeDAO */
 	@Mock
 	private ThemeDAO themeDao;
 
-	// On mocke un Theme
+	/** On mocke un Theme */
 	@Mock
 	private Theme theme;
-	
-	// On mocke un ThemeDTO
+
+	/** On mocke un ThemeDTO */
 	@Mock
 	private ThemeDTO themeDto;
 
-	// On mocke une List<Theme>
+	/** On mocke une List<Theme> */
 	@Mock
 	private List<Theme> themes;
 
@@ -111,6 +113,8 @@ class ServiceThemeImplTest {
 	/**
 	 * Test method for
 	 * {@link fr.arnaud.ludovic.themes.services.impl.ServiceThemeImpl#updateTheme(fr.arnaud.ludovic.themes.modeles.dto.ThemeDTO)}.
+	 *
+	 * @throws Exception the exception
 	 */
 	@Test
 	void testUpdateTheme() throws Exception {

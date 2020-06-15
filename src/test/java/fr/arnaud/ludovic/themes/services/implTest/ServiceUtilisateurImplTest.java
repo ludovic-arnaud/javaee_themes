@@ -17,28 +17,35 @@ import fr.arnaud.ludovic.themes.modeles.entities.Utilisateur;
 import fr.arnaud.ludovic.themes.services.ServiceUtilisateur;
 import fr.arnaud.ludovic.themes.services.impl.ServiceUtilisateurImpl;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author ludov
+ * The Class ServiceUtilisateurImplTest.
  *
+ * @author ludov
  */
 @ExtendWith(MockitoExtension.class)
 class ServiceUtilisateurImplTest {
 	
-	// On créé une instance de la classe ServiceUtilisateurImpl à tester et on injecte les
-	// mocks créés avec @Mock (ou @Spy) dans l'instance
+	/** On créé une instance de la classe ServiceUtilisateurImpl à tester et on injecte les mocks créés avec @Mock (ou @Spy) dans l'instance */
 	@InjectMocks
 	private ServiceUtilisateur serviceUtilisateur = new ServiceUtilisateurImpl();
 	
+	/** Mock UtilisateurDAO */
 	@Mock
 	private UtilisateurDAO utilisateurDao;
 	
+	/** Mock Utilisateur */
 	@Mock
 	private Utilisateur utilisateur;
 	
+	/** Mock UtilisateurDTO */
 	@Mock
 	private UtilisateurDTO utilisateurDto;
 	
 
+	/**
+	 * Test de la méthode login().
+	 */
 	@Test
 	void testLogin() {
 		// ARRANGE
