@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import org.apache.log4j.Logger;
 import org.hibernate.service.Service;
 import org.hibernate.service.ServiceRegistry;
 
+import fr.arnaud.ludovic.themes.controllers.commande.CommandeInconnue;
 import fr.arnaud.ludovic.themes.controllers.exceptions.BadRequestException;
 import fr.arnaud.ludovic.themes.dao.ThemeDAO;
 import fr.arnaud.ludovic.themes.dao.impl.ThemeDAOImpl;
@@ -19,6 +21,9 @@ import fr.arnaud.ludovic.themes.services.ServiceTheme;
  * La classe ServiceThemeImpl implémente l'interface ServiceTheme.
  */
 public class ServiceThemeImpl implements ServiceTheme {
+	
+	/** Constante logger */
+	final static Logger logger = Logger.getLogger(CommandeInconnue.class);
 
 	/** Implémentation du DAO de Theme */
 	private ThemeDAO themeDao = new ThemeDAOImpl();
@@ -46,7 +51,7 @@ public class ServiceThemeImpl implements ServiceTheme {
 	 */
 	@Override
 	public Theme createTheme(ThemeDTO themeDTO) {
-		if (themeDTO.getNom() == null) {
+		if (themeDTO.getNom() == "") {
 			throw new BadRequestException(bundle.getString("ex.themenull"));
 		} else {
 			Theme theme = new Theme(themeDTO.getNom(), themeDTO.getCouleur(), themeDTO.getDescription(),
@@ -63,7 +68,7 @@ public class ServiceThemeImpl implements ServiceTheme {
 	 */
 	@Override
 	public void deleteTheme(ThemeDTO themeDTO) {
-		if (themeDTO.getNom() == null) {
+		if (themeDTO.getNom() == "") {
 			throw new BadRequestException(bundle.getString("ex.themenull"));
 		} else {
 			Theme theme = new Theme(themeDTO.getNom(), themeDTO.getCouleur(), themeDTO.getDescription(),
@@ -91,7 +96,7 @@ public class ServiceThemeImpl implements ServiceTheme {
 	 */
 	@Override
 	public Theme updateTheme(ThemeDTO themeDTO) {
-		if (themeDTO.getNom() == null) {
+		if (themeDTO.getNom() == "") {
 			throw new BadRequestException(bundle.getString("ex.themenull"));
 		} else {
 			Theme theme = themeDao.findById(themeDTO.getId());
