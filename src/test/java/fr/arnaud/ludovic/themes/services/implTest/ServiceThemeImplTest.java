@@ -111,14 +111,12 @@ class ServiceThemeImplTest {
 	/**
 	 * Test method for
 	 * {@link fr.arnaud.ludovic.themes.services.impl.ServiceThemeImpl#updateTheme(fr.arnaud.ludovic.themes.modeles.dto.ThemeDTO)}.
-	 * Test method not working
 	 */
 	@Test
 	void testUpdateTheme() throws Exception {
 		// ARRANGE
 		themeDto = new ThemeDTO("test", "couleur", "description", "descriptionDetaillee", 1);
-		//themeDto = new ThemeDTO("test final", "couleur finale", "description finale", "descriptionDetaillee finale",1);
-		System.out.println(themeDto);
+		when(themeDao.findById(themeDto.getId())).thenReturn(theme);
 		when(serviceTheme.updateTheme(themeDto)).thenReturn(theme);
 
 		// ACT
