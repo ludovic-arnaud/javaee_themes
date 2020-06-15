@@ -68,7 +68,7 @@ public class ServiceThemeImpl implements ServiceTheme {
 	 */
 	@Override
 	public void deleteTheme(ThemeDTO themeDTO) {
-		if (themeDTO.getNom() == "") {
+		if (themeDTO.getNom() == null) {
 			throw new BadRequestException(bundle.getString("ex.themenull"));
 		} else {
 			Theme theme = new Theme(themeDTO.getNom(), themeDTO.getCouleur(), themeDTO.getDescription(),
@@ -96,7 +96,7 @@ public class ServiceThemeImpl implements ServiceTheme {
 	 */
 	@Override
 	public Theme updateTheme(ThemeDTO themeDTO) {
-		if (themeDTO.getNom() == "") {
+		if (themeDTO.getNom() == null) {
 			throw new BadRequestException(bundle.getString("ex.themenull"));
 		} else {
 			Theme theme = themeDao.findById(themeDTO.getId());
